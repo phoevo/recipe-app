@@ -1,0 +1,123 @@
+:root {
+  font-family:Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+body{
+  width: 60%;
+  justify-content: center;
+  background-color: whitesmoke;
+  margin: 0;
+  overflow: scroll;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  color: black;
+  background-color: white;
+  font-size: large;
+  border-radius: 3px;
+  box-shadow: 0px 2px 1px 1px rgb(0, 0, 0, 0.1);
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-top: 20px;
+  background-color: whitesmoke;
+  color: black;
+  height: 100%;
+  border-left: 1px solid rgb(0, 0, 0, 0.1);
+  border-right: 1px solid rgb(0, 0, 0, 0.1);
+}
+
+.ingredientForm{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 50px;
+  color: black;
+}
+
+.ingredientForm > input{
+  width: 250px;
+  height: 30px;
+  background-color: white;
+  color: black;
+  border: 1px solid grey;
+  border-radius: 5px;
+
+}
+
+.ingredientForm > button{
+  width: 150px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+
+}
+
+.ingredientList{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ingredientList > ul{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-right: 50px;
+}
+
+
+
+.popUpBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0, 0.1);
+  gap: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.popUpBox > button{
+  background-color: black;
+  height: 40px;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+}
+
+.listItem{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 5px;
+  background-color: rgb(0, 0, 0, 0.1);
+  border-radius: 20px;
+  height: 30px;
+  width: 150px;
+  gap: 10px;
+}
+
+.icon:hover{
+  color: rgb(0, 0, 0, 0.6);
+}
