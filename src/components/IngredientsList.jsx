@@ -6,7 +6,7 @@ export default function IngredientsList(props) {
 
   const ingredientsListItems = props.ingredients.map((ingredient) => (
     <div key={ingredient} className="listItem">
-      <FontAwesomeIcon className='icon'
+      <FontAwesomeIcon className='icon-x'
         icon={faCircleXmark}
         onClick={() => props.removeItem(ingredient)}
       />
