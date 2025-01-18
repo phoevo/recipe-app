@@ -3,6 +3,7 @@ import Recipe from "./components/Recipe"
 import IngredientsList from "./components/IngredientsList"
 import Loading from "./components/Loading"
 import { getRecipeFromAI } from "./ai"
+
 export default function Main(){
 
     const [ingredients, setIngredient] = React.useState([])
@@ -11,12 +12,20 @@ export default function Main(){
 
     const [loading, setLoading] = React.useState(false)
 
+    const recipeSection = React.useRef(null);
+
+    React.useEffect(() => {
+        if(recipe && recipeSection){
+            recipeSection.current.scrollIntoView({behavior: "smooth"})
+        }
+    }, [recipe])
+
     async function getRecipe(){
         setLoading(true)
         const generatedRecipeMarkdown = await getRecipeFromAI(ingredients)
         setRecipe(generatedRecipeMarkdown);
         setLoading(false)
-        scrollScreen("down", 600, 10)
+
     }
 
     const ingredientTitle = ingredients.length < 1 ? "Add ingredients" : "Ingredients"
@@ -55,24 +64,6 @@ export default function Main(){
           );
         }
 
-    function scrollScreen(direction = "down", distance = 100, speed = 10) {
-        const scrollStep = direction === "down" ? speed : -speed;
-        let scrolled = 0;
-
-        const scrollInterval = setInterval(() => {
-        window.scrollBy(0, scrollStep);
-        scrolled += Math.abs(scrollStep);
-
-        if (scrolled >= distance) {
-            clearInterval(scrollInterval);
-        }
-        }, 10);
-    }
-
-
-
-
-
     return(
         <main>
             <form action={submitBtn} className="ingredientForm">
@@ -91,8 +82,8 @@ export default function Main(){
             removeItem = {removeItem}
             ingredients = {ingredients}/>
 
-            {ingredients.length >= 1 && <section className="popUpBox">
-                <h4>{ingredientCounter}</h4>
+            {ingredients.length >= 1 && <section className="popUpBox" ref={recipeSection}>
+                <p>{ingredientCounter}</p>
 
                 <button
                 onClick={getRecipe}
